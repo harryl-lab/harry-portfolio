@@ -1,294 +1,117 @@
+const navigation = [
+  ["Projects", "projects"], ["About", "about"],
+  ["Experience", "experience"],
+];
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-white">
-      {/* Navigation */}
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-8">
-        <a href="#" className="text-xl font-bold tracking-tight">
-          HL.
-        </a>
+    <main id="top">
+      <a className="skip-link" href="#content">Skip to content</a>
+      <header className="shell header">
+        <a className="wordmark" href="#top" aria-label="Harry Luo, back to top">HL.</a>
+        <nav aria-label="Main navigation">
+          {navigation.map(([label, id]) => <a href={"#" + id} key={id}>{label}</a>)}
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume PDF (opens in a new tab)">Resume</a>
+          <a href="#contact" className="nav-contact">Get in touch <span aria-hidden="true">↗</span></a>
+        </nav>
+      </header>
 
-        <div className="hidden gap-8 text-sm text-zinc-400 md:flex">
-          <a href="#about" className="transition hover:text-white">
-            About
-          </a>
-          <a href="#experience" className="transition hover:text-white">
-            Experience
-          </a>
-          <a href="#projects" className="transition hover:text-white">
-            Projects
-          </a>
-          <a href="#skills" className="transition hover:text-white">
-            Skills
-          </a>
-          <a href="#contact" className="transition hover:text-white">
-            Contact
-          </a>
+      <section className="shell hero" id="content" tabIndex={-1}>
+        <p className="eyebrow">University of Michigan · Computer Science</p>
+        <h1>Harry Luo<span className="muted">.</span></h1>
+        <h2>Software &amp;<br /><span className="muted">AI Engineering.</span></h2>
+        <div className="hero-bottom">
+          <p className="intro">Interested in building intelligent applications, integrating AI models,
+            and developing reliable software. Seeking software and AI engineering internships.</p>
+          <div className="actions">
+            <a className="button button-primary" href="#projects">Explore projects <span aria-hidden="true">↓</span></a>
+            <a className="button button-outline" href="/resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume PDF (opens in a new tab)">Resume <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
-      </nav>
+        <div className="hero-foot"><span>Software &amp; AI Engineering</span><span>Ann Arbor, Michigan</span></div>
+      </section>
 
-      {/* Hero */}
-      <section className="mx-auto flex min-h-[78vh] max-w-6xl flex-col justify-center px-6">
-        <p className="mb-5 text-sm font-medium uppercase tracking-[0.25em] text-zinc-500">
-          Software Engineer · University of Michigan
-        </p>
-
-        <h1 className="max-w-5xl text-6xl font-bold tracking-tight md:text-8xl">
-          Harry Luo
-        </h1>
-
-        <h2 className="mt-5 max-w-4xl text-3xl font-medium leading-tight text-zinc-400 md:text-5xl">
-          I build scalable software and intelligent systems.
-        </h2>
-
-        <p className="mt-8 max-w-2xl text-lg leading-8 text-zinc-400">
-          Computer Science and Mathematics of Finance and Risk Management
-          student at the University of Michigan, interested in software
-          engineering, distributed systems, AI, and financial technology.
-        </p>
-
-        <div className="mt-10 flex flex-wrap gap-4">
-          <a
-            href="#projects"
-            className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition hover:bg-zinc-200"
-          >
-            View Projects
-          </a>
-
-          <a
-            href="mailto:luoha@umich.edu"
-            className="rounded-full border border-zinc-700 px-6 py-3 text-sm font-semibold transition hover:border-zinc-400"
-          >
-            Contact Me
-          </a>
+      <section className="shell section" id="projects" aria-labelledby="projects-title">
+        <div className="section-heading">
+          <div><p className="eyebrow">01 / Project focus</p><h2 id="projects-title">Selected projects.</h2></div>
+          <p className="section-note">From concurrent task execution to everyday web tools—exploring different sides of software engineering.</p>
+        </div>
+        <div className="project-grid">
+          <article className="project project-main">
+            <div className="project-top"><span>01 / Systems</span></div>
+            <h3>C++ Thread Pool<br />&amp; Task Executor</h3>
+            <p>A focused exploration of concurrent task execution: how workers share work, return results, and shut down safely.</p>
+            <ul className="project-scope">
+              <li><span>01</span><div><h4>Concurrency fundamentals</h4><p>A fixed-size worker pool, shared task queue, mutexes, and condition variables.</p></div></li>
+              <li><span>02</span><div><h4>Predictable task lifecycle</h4><p>Future-based results, exception propagation, and graceful shutdown.</p></div></li>
+              <li><span>03</span><div><h4>Test, then measure</h4><p>Correctness tests and sequential-versus-parallel benchmarks with documented workloads.</p></div></li>
+            </ul>
+            <div className="project-stack">C++ <span>·</span> CMake <span>·</span> Concurrency</div>
+          </article>
+          <article className="project project-secondary">
+            <div className="project-top"><span>02 / Web</span></div>
+            <h3>Job Application<br />Tracker</h3>
+            <p>A small, useful browser application for keeping a job search organized, built with native web technologies.</p>
+            <ul className="feature-list">
+              <li>Company, role, date, and status records</li>
+              <li>Keyword search and status filters</li>
+              <li>Local storage and input validation</li>
+              <li>JSON import and export for backups</li>
+            </ul>
+            <div className="project-stack">JavaScript <span>·</span> HTML <span>·</span> CSS</div>
+          </article>
         </div>
       </section>
 
-      {/* About */}
-      <section id="about" className="mx-auto max-w-6xl px-6 py-28">
-        <p className="mb-3 text-sm uppercase tracking-[0.2em] text-zinc-500">
-          About
-        </p>
-
-        <h2 className="max-w-3xl text-3xl font-semibold leading-tight md:text-5xl">
-          Building software at the intersection of systems, AI, and real-world
-          problems.
-        </h2>
-
-        <p className="mt-8 max-w-3xl text-lg leading-8 text-zinc-400">
-          I enjoy designing software systems that are fast, reliable, and
-          useful. My experience spans full-stack development, backend
-          infrastructure, AI systems, and multithreaded programming.
-        </p>
-      </section>
-
-      {/* Experience */}
-      <section id="experience" className="mx-auto max-w-6xl px-6 py-28">
-        <p className="mb-3 text-sm uppercase tracking-[0.2em] text-zinc-500">
-          Experience
-        </p>
-
-        <h2 className="mb-14 text-4xl font-semibold">
-          Where I&apos;ve worked.
-        </h2>
-
-        <div className="space-y-6">
-          <div className="rounded-3xl border border-zinc-800 bg-zinc-950 p-8">
-            <div className="flex flex-col justify-between gap-3 md:flex-row">
-              <div>
-                <h3 className="text-2xl font-semibold">
-                  Ningbo Pioneer Supply Chain Co., Ltd.
-                </h3>
-
-                <p className="mt-1 text-zinc-400">
-                  Software Engineer Intern
-                </p>
-              </div>
-
-              <p className="text-sm text-zinc-500">
-                Jun. 2026 — Jul. 2026
-              </p>
-            </div>
-
-            <p className="mt-6 max-w-3xl leading-7 text-zinc-400">
-              Built a React, FastAPI, and PostgreSQL logistics platform
-              managing 10,000+ shipment records and centralizing order search,
-              tracking, and delivery exception monitoring.
-            </p>
-          </div>
-
-          <div className="rounded-3xl border border-zinc-800 bg-zinc-950 p-8">
-            <div className="flex flex-col justify-between gap-3 md:flex-row">
-              <div>
-                <h3 className="text-2xl font-semibold">Avodah</h3>
-
-                <p className="mt-1 text-zinc-400">
-                  AI Software Engineer Intern
-                </p>
-              </div>
-
-              <p className="text-sm text-zinc-500">
-                Jan. 2026 — Mar. 2026
-              </p>
-            </div>
-
-            <p className="mt-6 max-w-3xl leading-7 text-zinc-400">
-              Worked on low-latency speech-to-text infrastructure using C++,
-              asynchronous inference, and AWS ECS.
-            </p>
-          </div>
+      <section className="shell section about" id="about" aria-labelledby="about-title">
+        <div><p className="eyebrow">02 / About</p><h2 id="about-title">A foundation<br />in the fundamentals.</h2></div>
+        <div className="about-copy">
+          <p>I&apos;m Hao Luo, also known as Harry, studying Computer Science and Mathematics of Finance and Risk Management at the University of Michigan.</p>
+          <p>I’m interested in the intersection of software engineering and AI: connecting models with useful applications and building the systems that make them reliable. I enjoy working across application development, model integration, and deployment, grounded in data structures, concurrency, and software fundamentals.</p>
+          <div className="education"><strong>University of Michigan</strong><span>B.S. · Expected May 2029</span></div>
         </div>
       </section>
 
-      {/* Projects */}
-      <section id="projects" className="mx-auto max-w-6xl px-6 py-28">
-        <p className="mb-3 text-sm uppercase tracking-[0.2em] text-zinc-500">
-          Selected Projects
-        </p>
-
-        <h2 className="mb-14 text-4xl font-semibold">
-          Things I&apos;ve built.
-        </h2>
-
-        <div className="grid gap-6 md:grid-cols-2">
-          {/* Distributed Search Engine */}
-          <div className="rounded-3xl border border-zinc-800 bg-zinc-950 p-8 transition hover:-translate-y-1 hover:border-zinc-600">
-            <p className="text-sm text-zinc-500">Distributed Systems</p>
-
-            <h3 className="mt-3 text-2xl font-semibold">
-              Distributed Search Engine
-            </h3>
-
-            <p className="mt-5 leading-7 text-zinc-400">
-              Concurrent web crawler and inverted-index search engine with
-              distributed workers and Redis-backed task queues.
-            </p>
-
-            <p className="mt-8 text-sm text-zinc-500">
-              Go · Redis · PostgreSQL · gRPC · Docker
-            </p>
-          </div>
-
-          {/* C++ Engine */}
-          <div className="rounded-3xl border border-zinc-800 bg-zinc-950 p-8 transition hover:-translate-y-1 hover:border-zinc-600">
-            <p className="text-sm text-zinc-500">Systems Programming</p>
-
-            <h3 className="mt-3 text-2xl font-semibold">
-              Multithreaded C++ Task Engine
-            </h3>
-
-            <p className="mt-5 leading-7 text-zinc-400">
-              Multithreaded task execution engine featuring a custom thread
-              pool, priority queue, and work-stealing scheduler.
-            </p>
-
-            <p className="mt-8 text-sm text-zinc-500">
-              C++ · Multithreading · CMake · GoogleTest
-            </p>
-          </div>
-
-          {/* Real-Time Collaboration */}
-          <div className="rounded-3xl border border-zinc-800 bg-zinc-950 p-8 transition hover:-translate-y-1 hover:border-zinc-600 md:col-span-2">
-            <p className="text-sm text-zinc-500">Full Stack</p>
-
-            <h3 className="mt-3 text-2xl font-semibold">
-              Real-Time Collaboration Platform
-            </h3>
-
-            <p className="mt-5 max-w-3xl leading-7 text-zinc-400">
-              Real-time multi-user collaboration platform with WebSocket
-              messaging, Redis Pub/Sub, authentication, persistent sessions,
-              and cloud deployment.
-            </p>
-
-            <p className="mt-8 text-sm text-zinc-500">
-              React · TypeScript · FastAPI · Redis · PostgreSQL · AWS
-            </p>
-          </div>
+      <section className="shell section" id="experience" aria-labelledby="experience-title">
+        <div className="section-heading"><div><p className="eyebrow">03 / Experience</p><h2 id="experience-title">Industry experience.</h2></div></div>
+        <div className="experience-list">
+          <article className="experience-row">
+            <p className="date">Jun — Jul 2026</p>
+            <div><h3>Ningbo Pioneer Supply Chain Co., Ltd.</h3><p className="role">Software Engineer Intern · Ningbo, China</p>
+              <p>Logistics platform development with React, FastAPI, and PostgreSQL, covering shipment search, tracking, and delivery exception monitoring.</p></div>
+          </article>
+          <article className="experience-row">
+            <p className="date">Jan — Mar 2026</p>
+            <div><h3>Avodah</h3><p className="role">AI Software Engineer Intern · Remote</p>
+              <p>Speech-to-text infrastructure involving C++ preprocessing, asynchronous inference, and deployment on AWS ECS.</p></div>
+          </article>
         </div>
       </section>
 
-      {/* Skills */}
-      <section id="skills" className="mx-auto max-w-6xl px-6 py-28">
-        <p className="mb-3 text-sm uppercase tracking-[0.2em] text-zinc-500">
-          Technical Skills
-        </p>
-
-        <h2 className="mb-12 text-4xl font-semibold">
-          What I work with.
-        </h2>
-
-        <div className="grid gap-8 md:grid-cols-2">
-          <div>
-            <h3 className="font-semibold">Languages</h3>
-
-            <p className="mt-3 leading-7 text-zinc-400">
-              Python, C++, C, Go, JavaScript, TypeScript, SQL, HTML/CSS
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-semibold">Frameworks</h3>
-
-            <p className="mt-3 leading-7 text-zinc-400">
-              React, FastAPI, Flask
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-semibold">
-              Databases &amp; Cloud
-            </h3>
-
-            <p className="mt-3 leading-7 text-zinc-400">
-              PostgreSQL, Redis, AWS, AWS ECS
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-semibold">
-              Tools &amp; Technologies
-            </h3>
-
-            <p className="mt-3 leading-7 text-zinc-400">
-              REST APIs, WebSockets, gRPC, Docker, Git, CMake, GoogleTest
-            </p>
-          </div>
+      <section className="shell section" id="skills" aria-labelledby="skills-title">
+        <div className="section-heading"><div><p className="eyebrow">04 / Technical focus</p><h2 id="skills-title">A focused toolkit.</h2></div></div>
+        <div className="skills-grid">
+          <div><h3>Languages</h3><p>C++, C, Python<br />JavaScript, SQL, HTML/CSS</p></div>
+          <div><h3>Web &amp; backend</h3><p>React, FastAPI<br />REST APIs, PostgreSQL</p></div>
+          <div><h3>Tools &amp; infrastructure</h3><p>Git, Docker<br />AWS ECS</p></div>
         </div>
       </section>
 
-      {/* Contact */}
-      <section
-        id="contact"
-        className="mx-auto max-w-6xl px-6 py-32 text-center"
-      >
-        <p className="text-sm uppercase tracking-[0.2em] text-zinc-500">
-          Contact
-        </p>
-
-        <h2 className="mx-auto mt-4 max-w-3xl text-4xl font-semibold md:text-6xl">
-          Let&apos;s build something interesting.
-        </h2>
-
-        <p className="mx-auto mt-6 max-w-xl leading-7 text-zinc-400">
-          I&apos;m always interested in software engineering opportunities,
-          technical projects, and new ideas.
-        </p>
-
-        <a
-          href="mailto:luoha@umich.edu"
-          className="mt-10 inline-block rounded-full bg-white px-7 py-3 text-sm font-semibold text-black transition hover:bg-zinc-200"
-        >
-          luoha@umich.edu
-        </a>
+      <section className="shell resume-section" id="resume" aria-labelledby="resume-title">
+        <div><p className="eyebrow">Resume</p><h2 id="resume-title">The details, in one page.</h2><p>Education, experience, and selected projects.</p></div>
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="View resume PDF (opens in a new tab)" className="button button-outline">View resume (PDF) <span aria-hidden="true">↗</span></a>
       </section>
 
-      {/* Footer */}
-      <footer className="mx-auto max-w-6xl border-t border-zinc-900 px-6 py-8 text-sm text-zinc-600">
-        <div className="flex flex-col justify-between gap-2 md:flex-row">
-          <p>© 2026 Harry Luo</p>
-          <p>harry-luo.com</p>
+      <section className="shell section contact" id="contact" aria-labelledby="contact-title">
+        <p className="eyebrow">05 / Contact</p><h2 id="contact-title">Let&apos;s talk<br /><span className="muted">about what&apos;s next.</span></h2>
+        <p>Software and AI engineering internships, useful applications, and new conversations.</p>
+        <div className="contact-links">
+          <a href="mailto:luoha@umich.edu">luoha@umich.edu <span aria-hidden="true">↗</span></a>
+          <a href="tel:+17344650568">+1 (734) 465-0568 <span aria-hidden="true">↗</span></a>
+          <a href="https://harry-luo.com">harry-luo.com <span aria-hidden="true">↗</span></a>
         </div>
-      </footer>
+      </section>
+      <footer className="shell footer"><span>© 2026 Harry Luo</span><a href="#top">Back to top ↑</a></footer>
     </main>
   );
 }
